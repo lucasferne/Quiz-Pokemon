@@ -140,7 +140,10 @@ pokemonButton.forEach((button) => {
       setTimeout(() => {
         resetGame();
       }, 4000);
-     
+
+      else {
+      alert('Tente novamente')
+    }
 
     }
 
