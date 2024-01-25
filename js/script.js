@@ -144,6 +144,10 @@ pokemonButton.forEach((button) => {
 
     }
 
+    else {
+      alert('Tente novamente')
+    }
+
   });
 });
 
