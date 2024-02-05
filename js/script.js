@@ -1,4 +1,4 @@
-  Authorization: Bearer ADLHYNBAZ4EcclcFv6E7W8sk
+Authorization: Bearer ADLHYNBAZ4EcclcFv6E7W8sk
 
 const pokemonName = document.querySelector('.pokemon__name');
 const pokemonButton = document.querySelectorAll('.pokemon__button');
