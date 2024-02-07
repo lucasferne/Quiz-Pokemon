@@ -1,5 +1,3 @@
-//Mapeamento dos botões
-
 const pokemonName = document.querySelector('.pokemon__name');
 const pokemonButton = document.querySelectorAll('.pokemon__button');
 const pokemonNameBotao = document.querySelector('.pokemon__name__botao');
@@ -9,17 +7,14 @@ const pokemonNameBotao4 = document.querySelector('.pokemon__name__botao4');
 const pokemonNumber = document.querySelector('.pokemon__number');
 const pokemonImage = document.querySelector('.pokemon__image');
 
-//Função simples para gerar números aleatório que serão usado na consulta para API
 const randomNumber = generatePokemon();
 const randomChoices = generateChoices();
 
 let searchPokemon = randomNumber;
 let searchChoices = randomChoices;
 
-//Variável que armazena o ID do pokemon correto escolhido.
 var correctPokemonId;
 
-//Função assincrona para esperar o retorno da API
 const fetchPokemon = async (number) => {
   const APIResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${number}`);
 
@@ -29,12 +24,11 @@ const fetchPokemon = async (number) => {
   }
 }
 
-//Função para escolher um pokemon pela sua posição na National dex (1 à 650)
+
 function generatePokemon() {
   return Math.floor(Math.random() * 649) + 1;
 }
 
-//Aqui é feito um array com 4 pokemons, um deles será selecionado como correto.
 function generateChoices() {
   let array = [];
   while (array.length < 4) {
@@ -48,15 +42,6 @@ function generateChoices() {
   return array;
 }
 
-//Essa função selecionará o ID de um dos números do array para ser o correto.
-function chooseRight(choices) {
-
-  let rightPokemon = Math.floor(Math.random() * 4);
-  correctPokemonId = choices[rightPokemon].id;
-
-}
-
-//Aqui, será enviado aos botões as informações corretas.
 const renderInterface = async (generateChoices) => {
 
   let cont = 0;
@@ -69,7 +54,6 @@ const renderInterface = async (generateChoices) => {
     cont++;
   }
 
-  //Aqui é definido o pokemon correto dentro do ID
   chooseRight(choices);
 
   renderRightPokemon(correctPokemonId);
@@ -85,7 +69,13 @@ const renderInterface = async (generateChoices) => {
 
 }
 
-//Função para mostrar o pokemon correto do jogo na tela de amostra
+function chooseRight(choices) {
+
+  let rightPokemon = Math.floor(Math.random() * 4);
+  correctPokemonId = choices[rightPokemon].id;
+
+}
+
 const renderRightPokemon = async (pokemonId) => {
 
   pokemonName.innerHTML = '??????';
@@ -113,8 +103,7 @@ const renderRightPokemon = async (pokemonId) => {
 const inputData = async (pokemonId) => {
 
   let data = await fetchPokemon(pokemonId);
-
-  //Tratamento para nomes grandes demais
+  
   if (data) {
   pokemonName.innerHTML = (data.name.length > 10) ? data.name.substring(0, 10) + '...' : data.name;
   pokemonNumber.innerHTML = data.id;
@@ -128,7 +117,6 @@ function resetGame(){
 
 renderInterface(searchChoices);
 
-//Função para mapear cliques do usuário e assim realizar as ações de animação
 pokemonButton.forEach((button) => {
   let buttonId;
   button.addEventListener('click', () => {
@@ -153,12 +141,8 @@ pokemonButton.forEach((button) => {
         resetGame();
       }, 4000);
 
-      else {
-      alert('Tente novamente')
+    } else {
+      alert('Tente novamente');
     }
-
-    }
-
   });
 });
-
