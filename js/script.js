@@ -146,3 +146,4 @@ pokemonButton.forEach((button) => {
     }
   });
 });
+
