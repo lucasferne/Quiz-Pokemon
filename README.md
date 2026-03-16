@@ -6,4 +6,4 @@ Para a instalar, basta replicar esse repositório em uma pasta no seu computador
 
 Se quiser, também é possível jogá-lo por esse link:
 
-https://quiz-pokemon-gray.vercel.app/
+https://lucasferne.github.io/Quiz-Pokemon/
