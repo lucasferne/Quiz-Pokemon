@@ -91,9 +91,6 @@ const renderRightPokemon = async (pokemonId) => {
   pokemonImage.classList.add("brightless");
   pokemonImage.style.opacity = "0";
 
-  pokemonName.innerHTML = 'Loading...';
-  pokemonNumber.innerHTML = '';
-
   const data = await fetchPokemon(pokemonId);
 
   if (data) {
@@ -157,25 +154,29 @@ pokemonButton.forEach((button) => {
 
       await inputData(correctPokemonId);
 
+      pokemonCrie.currentTime = 0;
+      pokemonCrie.play();
+      setTimeout(() => {
+        if (!pokemonCrie.paused) return;
+        finishRound();
+      }, 4000);
+      
       pokemonCrie.onended = () => {
 
         pokemonImage.classList.add("brightless");
         pokemonImage.classList.add("temp-fade");
 
         setTimeout(() => {
-          pokemonImage.classList.remove("temp-fade");          
+          pokemonImage.classList.remove("temp-fade");
 
           streak++;
           streakValue.innerHTML = streak;
-          
+
           resetGame();
         }, 300);
 
 
       };
-
-      pokemonCrie.currentTime = 0;
-      pokemonCrie.play();
 
 
     } else {
