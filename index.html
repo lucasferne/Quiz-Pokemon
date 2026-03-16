@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,11 +12,13 @@
   <!-- Main JS -->
   <script defer src="./js/script.js"></script>
 
-  <title>Pokédex</title>
+  <title>Pokequiz</title>
 </head>
+
 <body>
-  
+
   <main>
+    <div class="loader" id="loader">Loading...</div>
     <img src="#" alt="pokemon" class="pokemon__image brightless" id="pokemon_image">
 
     <h1 class="pokemon__data">
@@ -31,7 +34,13 @@
     </div>
 
     <img src="./images/pokedex.png" alt="pokedex" class="pokedex">
+    
+    <h2 class="streak">
+      Streak: <span id="streak">0</span>
+    </h2>
+
   </main>
 
 </body>
+
 </html>
