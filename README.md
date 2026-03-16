@@ -4,6 +4,6 @@ Gosto muito desse universo, então nada mais justo que estudar um pouco de estil
 
 Para a instalar, basta replicar esse repositório em uma pasta no seu computador e preparar um ambiente PHP.
 
-Divirta-se!
+Se quiser, também é possível jogá-lo por esse link:
 
 https://quiz-pokemon-gray.vercel.app/
